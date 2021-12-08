@@ -1,4 +1,4 @@
-from invman.nn.policy_net import PolicyNet, PolicyNetS
+from invman.nn.policy_net import PolicyNet
 from invman.env.lost_sales import get_model_fitness
 from invman.heuristics.lost_sales_heuristics import get_heuristic_policy_cost
 from invman.es_mp import train
@@ -13,7 +13,6 @@ if __name__ == "__main__":
     max_order_size = max(state_action_svbs.values()) + 1
     args.max_order_size = 25
     model = PolicyNet(input_dim=args.lead_time, hidden_dim=[10, 20], output_dim=args.max_order_size)
-    #model = PolicyNet(input_dim=225, hidden_dim=args.hidden_dim, output_dim=args.max_order_size)
     args.sigma_init = 5
     print("Training started", max_order_size)
     model, fitness_hist = train(model=model, get_model_fitness=get_model_fitness, args=args)
