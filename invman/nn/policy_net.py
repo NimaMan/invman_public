@@ -5,7 +5,7 @@ import torch.nn.functional as F
 
 from invman.nn.es_module import ESModule
 from invman.nn.utils import get_activation_function
-from rga.utils import save_init_args
+from invman.utils import save_init_args
 
 
 class PolicyNet(ESModule):

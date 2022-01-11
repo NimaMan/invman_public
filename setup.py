@@ -14,11 +14,10 @@ from os import path
 name = "invman"
 version = "0.1"
 release = "0.0.1"
-description = "Inventory Management"
+description = "Inventory Management with Reinforcement Learning and Evolution Strategies"
 author = "Nima Manafzadeh Dizbin"
 author_email = "ndizbin14@ku.edu.tr"
 url = "nimaman.github.io"
-
 
 with open("requirements.txt", "r") as fh:
     requirements = fh.readlines()

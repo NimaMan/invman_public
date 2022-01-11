@@ -2,8 +2,8 @@ import numpy as np
 import torch
 import multiprocessing as mp
 import time
-from rga.es import CMAES, OpenES
-from rga.utils import write_log, save_model_solutions, save_es_reward_hist
+from invman.es import CMAES
+from invman.utils import write_log, save_model_solutions, save_es_reward_hist
 
 
 def get_es_optimizer(model, args):
@@ -12,13 +12,6 @@ def get_es_optimizer(model, args):
             model.num_params,
             sigma_init=args.sigma_init,
             popsize=args.es_population,
-        )
-    elif args.training_method == "es":
-        es = OpenES(
-            model.num_params,
-            sigma_init=args.sigma_init,
-            popsize=args.es_population,
-            sigma_decay=args.sigma_decay,
         )
     else:
         raise NotImplementedError
