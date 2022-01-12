@@ -11,10 +11,8 @@ if __name__ == "__main__":
     args.exp_des = args.desc
     env_svbs, svbs_tc, state_action_svbs = get_heuristic_policy_cost(args, heuristic="standard_vector_base_stock")
     max_order_size = max(state_action_svbs.values()) + 1
-    args.max_order_size = 25
-    model = PolicyNet(input_dim=args.lead_time, hidden_dim=[10, 20], output_dim=args.max_order_size)
-    args.sigma_init = 5
-    print("Training started", max_order_size)
+    model = PolicyNet(input_dim=args.lead_time, hidden_dim=args.hidden_dim, output_dim=args.max_order_size)
+    print("Training started", )
     model, fitness_hist = train(model=model, get_model_fitness=get_model_fitness, args=args)
 
     args.horizon = int(1e5)

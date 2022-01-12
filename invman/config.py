@@ -16,7 +16,7 @@ def get_config():
     parser.add_argument("--training_method", default="cma", type=str, help="training method")
     parser.add_argument("--training_episodes", default=1000, type=int, help="training method")
     parser.add_argument("--mp_num_processors", default=os.getenv("MP_NUM_PROCESSORS"), type=int, help="training method")
-    parser.add_argument("--sigma_init", default=1, type=float, help="initial sigma of cma-es")
+    parser.add_argument("--sigma_init", default=5, type=float, help="initial sigma of cma-es")
     parser.add_argument("--es_population", default=50, type=int, help="Number of es population")
 
     # Env
@@ -29,7 +29,6 @@ def get_config():
 
     # Policy Net
     parser.add_argument("--hidden_dim", default=[20, 10], type=list, help="number of neuron in each layer of the neural network")
-    parser.add_argument("--policy_network_size", default="small", type=str, help="policy network size category")
 
     # Directories
     parser.add_argument("--out_dir", type=str, default=os.getenv("OUTDIR"),
@@ -42,7 +41,7 @@ def get_config():
     parser.add_argument("--desc", default="lost_sales_inv_man", type=str, help="experiment description")
 
     # Misc
-    parser.add_argument("--model_save_step", default=1000, type=int, help="descrition")
+    parser.add_argument("--model_save_step", default=1000, type=int, help="saves the model every model_save_step ")
 
     # return args
     return parser.parse_args()
